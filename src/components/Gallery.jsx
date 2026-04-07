@@ -12,7 +12,7 @@ const PROJECTS = [
       { src: publicImage('AUDITORIO.jpg'), alt: 'Auditorium' },
       { src: publicImage('PASILLO.jpg'),   alt: 'Corridor & youth space' },
     ],
-    mobileExtraImages: [{ src: publicImage('07.jpg'), alt: 'Dream Church — interior view' }],
+    mobileExtraImages: [{ src: publicImage('SOCIAL.jpg'), alt: 'Dream Church — interior view' }],
   },
   {
     caption: 'Residential Projects — Mexico',
@@ -23,7 +23,7 @@ const PROJECTS = [
       { src: publicImage('08.jpg'), alt: 'Interior living space' },
     ],
     mobileExtraImages: [
-      { src: publicImage('SOCIAL.jpg'), alt: 'Social and community space' },
+      { src: publicImage('07.jpg'), alt: 'Social and community space' },
     ],
   },
 ]
