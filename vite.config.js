@@ -5,5 +5,5 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base:
     process.env.VITE_BASE_PATH ||
-    (mode === 'development' ? '/' : '/Dream-Homepage/'),
+    (mode === 'development' ? '/' : '/Dream/'),
 }))
