@@ -1,10 +1,33 @@
-import { Suspense, useRef } from 'react'
+import { Suspense, useMemo, useRef } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useTexture } from '@react-three/drei'
+import { publicImage } from '../assetUrl'
+
+const COVER_MARGIN = 1.12
+
+/** Plane size (world units) so texture maps without stretch — like CSS object-fit: cover. */
+function useCoverPlaneSize(texture) {
+  const { viewport } = useThree()
+  return useMemo(() => {
+    const img = texture.image
+    const iw = img?.naturalWidth || img?.width || 1
+    const ih = img?.naturalHeight || img?.height || 1
+    const imgAspect = iw / ih
+    const vw = viewport.width * COVER_MARGIN
+    const vh = viewport.height * COVER_MARGIN
+    const viewAspect = vw / vh
+    if (imgAspect > viewAspect) {
+      const h = vh
+      return [h * imgAspect, h]
+    }
+    const w = vw
+    return [w, w / imgAspect]
+  }, [texture, viewport.width, viewport.height])
+}
 
 function HeroScene() {
-  const texture = useTexture('/images/01.jpg')
-  const { viewport } = useThree()
+  const texture = useTexture(publicImage('01.jpg'))
+  const [w, h] = useCoverPlaneSize(texture)
   const meshRef = useRef()
 
   useFrame(({ mouse }) => {
@@ -15,10 +38,6 @@ function HeroScene() {
     meshRef.current.position.y +=
       (mouse.y * 0.10 - meshRef.current.position.y) * 0.04
   })
-
-  // Slightly oversized plane so parallax doesn't reveal edges
-  const w = viewport.width  * 1.12
-  const h = viewport.height * 1.12
 
   return (
     <>
@@ -49,7 +68,7 @@ export default function Hero() {
       {/* ── Navigation ── */}
       <nav className="hero-nav">
         <a href="#" className="hero-nav-logo">DREAM</a>
-        <span className="hero-nav-links">Studio  ·  Work  ·  Contact</span>
+        <span className="hero-nav-links">Practice  ·  Work  ·  Contact</span>
         <button className="hamburger" aria-label="Open menu">
           <span /><span /><span />
         </button>

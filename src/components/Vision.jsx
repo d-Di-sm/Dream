@@ -1,3 +1,5 @@
+import { publicImage } from '../assetUrl'
+
 export default function Vision() {
   return (
     <section className="vision" id="vision">
@@ -17,7 +19,7 @@ export default function Vision() {
         <div className="vision-right">
           <div className="vision-divider" />
           <p className="vision-text">
-            DREAM is not a studio. It is a platform for spatial intelligence —
+            DREAM is not just a studio. It is a platform for spatial intelligence —
             where architecture meets computation, and experience becomes the medium.
           </p>
           <p className="vision-text">
@@ -30,7 +32,7 @@ export default function Vision() {
 
       <img
         className="vision-image"
-        src="/images/04.jpg"
+        src={publicImage('04.jpg')}
         alt="Architectural project — terracotta building with rooftop pool"
       />
       <p className="vision-bottom-label">Architecture  ·  Technology  ·  Storytelling</p>
