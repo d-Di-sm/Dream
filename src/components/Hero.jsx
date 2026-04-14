@@ -1,7 +1,7 @@
 import { Suspense, useMemo, useRef } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useTexture } from '@react-three/drei'
-import { publicImage } from '../assetUrl'
+import { assetUrl, publicImage } from '../assetUrl'
 
 const COVER_MARGIN = 1.12
 
@@ -68,7 +68,18 @@ export default function Hero() {
       {/* ── Navigation ── */}
       <nav className="hero-nav">
         <a href="#" className="hero-nav-logo">DREAM</a>
-        <span className="hero-nav-links">Practice  ·  Work  ·  Contact</span>
+        <div className="hero-nav-center">
+          <span className="hero-nav-links">Practice  ·  Work  ·  Contact</span>
+          <a
+            href="https://www.instagram.com/dreamrealities.dev/"
+            className="hero-nav-instagram"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Dream Realities on Instagram"
+          >
+            <img src={assetUrl('Logo_Ins.png')} alt="" aria-hidden="true" />
+          </a>
+        </div>
         <button className="hamburger" aria-label="Open menu">
           <span /><span /><span />
         </button>

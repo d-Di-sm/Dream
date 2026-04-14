@@ -7,10 +7,10 @@ export default function Footer() {
           <span className="footer-tagline">Beyond Visualization</span>
         </div>
         <div>
-          <a href="mailto:hello@dreamstudio.io" className="footer-cta">
+          <a href="mailto:contact@dream-realities.com" className="footer-cta">
             Start a Project →
           </a>
-          <span className="footer-email">hello@dreamstudio.io</span>
+          <span className="footer-email">contact@dream-realities.com</span>
         </div>
       </div>
 
@@ -18,7 +18,17 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <span className="footer-copy">© 2024 DREAM. All rights reserved.</span>
-        <span className="footer-links">Instagram  ·  LinkedIn  ·  Pinterest</span>
+        <span className="footer-links">
+          <a
+            className="footer-link"
+            href="https://www.instagram.com/dreamrealities.dev/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Instagram
+          </a>
+          {'  ·  LinkedIn  ·  Pinterest'}
+        </span>
       </div>
     </footer>
   )
